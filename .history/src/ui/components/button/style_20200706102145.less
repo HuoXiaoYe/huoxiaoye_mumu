@@ -1,0 +1,17 @@
+@import "@/ui/less/variables.less";
+@import "@/ui/less/mixin.less";
+.mu-button{
+    margin: 20px;
+    border-radius: 5px;
+    border-style: none;
+    &.mu-large{
+        padding: 20px 60px;
+        font-size: @fontBigSize;
+    }
+    &.mu-normal{
+        padding: 10px 30px;
+    }
+    &.primary{
+        .btnTypeColoe(@primaryColor);
+    }
+}
