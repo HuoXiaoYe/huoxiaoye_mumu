@@ -1,27 +1,19 @@
 import React from 'react';
 import Button from "@/ui/components/button/button"
-import notification from "@/ui/components/message/message"
-import Notification from 'rc-notification';
-
-
-
+import message from "@/ui/components/message/message.tsx"
 
 const MessageWrap: React.FC<any> = props => {
     function handleClick1() {
-        notification.pop({ type: 'success', message: "hello world", description: "hello description", top: "1000px" })
+        message.open({ type: "primary", message: "hello world" })
     }
     function handleClick2() {
-        notification.pop({ type: 'success', message: "hello worldcccc", description: "hello description", top: "1000px" })
+        message.open({ type: "success", message: "hello worldcccc" })
     }
     function handleClick3() {
-        notification.pop({ type: 'success', message: "hello worldcccc", description: "hello description", top: "1000px" })
+        message.open({ type: 'info', message: "hello worldcccc" })
     }
     function handleClick4() {
-        Notification.newInstance({}, notification => {
-            notification.notice({
-                content: 'content'
-            });
-        });
+        message.open({ type: 'warning', message: "hello worldcccc" })
     }
     return (
         <div>

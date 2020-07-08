@@ -3,13 +3,13 @@
 interface IGenerateClassName {
     (prefix: string, classNameMap: {
         [key: string]: boolean | undefined
-    }): string
+    }, className?: string): string
 }
-export const generateClassName: IGenerateClassName = (prefix, classNameMap) => {
+export const generateClassName: IGenerateClassName = (prefix, classNameMap, className) => {
     // 遍历map，
     let classArr: string[] = [];
     Object.keys(classNameMap).forEach(item => {
         classNameMap[item] && classArr.push(`${prefix}-${item}`)
     })
-    return classArr.join(" ")
+    return className ? ` ${className}` : '' + classArr.join(" ");
 }
