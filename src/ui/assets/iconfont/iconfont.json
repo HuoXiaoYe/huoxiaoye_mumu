@@ -1,0 +1,51 @@
+{
+  "id": "1923316",
+  "name": "mumu-ui",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "384288",
+      "name": "edit",
+      "font_class": "edit",
+      "unicode": "e698",
+      "unicode_decimal": 59032
+    },
+    {
+      "icon_id": "970725",
+      "name": "search",
+      "font_class": "search",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "1441177",
+      "name": "delete",
+      "font_class": "delete",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "7275151",
+      "name": "email (Filled)",
+      "font_class": "emailFilled",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "9869945",
+      "name": "check",
+      "font_class": "check",
+      "unicode": "e6fd",
+      "unicode_decimal": 59133
+    },
+    {
+      "icon_id": "12025575",
+      "name": "star",
+      "font_class": "star",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    }
+  ]
+}

@@ -1,45 +1,89 @@
 import React, { useEffect } from "react";
-import "./style.less"
 import { generateClassName } from "@/ui/utils/utils"
+import "./style.less"
 
-export type ButtonType = 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'link';
+export type ButtonType = 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'link';
 export type ButtonSize = 'large' | 'normal' | 'small';
 
 interface baseButtonProps {
-    size?: ButtonSize;
-    type?: ButtonType;
-    disabled?: boolean;
-    className?: string;
-    children?: React.ReactNode;
+    size: ButtonSize;
+    type: ButtonType;
+    disabled: 'disabled';
+    className: string;
+    children: React.ReactNode;
+    plain: 'plain';
+    circle: 'circle';
+    loading: 'loading';
+    icon: string;
 }
 
-const Button: React.FC<baseButtonProps> = (props) => {
+type NativeButtonProps = baseButtonProps & {
+    onClick?: React.MouseEventHandler<HTMLElement>;
+};
+type NativeAnchorProps = baseButtonProps & React.AnchorHTMLAttributes<HTMLElement>;
+type buttonProps = Partial<NativeAnchorProps & NativeButtonProps>
+
+const Button: React.FC<buttonProps> = (props) => {
     const {
-        size, type, disabled,
+        size, type, disabled, plain, circle, loading,icon, ...rest
     } = props
     let btnClass = generateClassName("mu", {
         'button': true,
         [`${size}`]: !!size,
         [`${type}`]: !!type,
-        [`${disabled}`]: disabled
+        [`${disabled}`]: !!disabled,
+        [`${plain}`]: !!plain,
+        [`${circle}`]: !!circle,
+        [`${icon}`] : !!icon
     })
     useEffect(() => {
         // console.log(props)
-
     })
+    function handleClick(e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) {
+        if (disabled) {
+            return
+        }
+        if (props.onClick) {
+            (props.onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e)
+        }
+
+    }
+    function getLinkElement():React.ReactNode {
+        return <a href={props.href} className={btnClass} onClick={handleClick} target={props.target} {...rest}>
+            {props.children}
+        </a>
+    }
+    function getButtonElement():React.ReactNode {
+        return (
+            <button className={btnClass} onClick={handleClick}>
+                {
+                    loading ? <div className="mu-loading"></div> : ''
+                }
+                {
+                    icon ? <i className={['iconfont', `icon-${icon}`].join(" ")}></i> : ''
+                }
+                {
+                    props.children
+                }
+            </button>
+        )
+    }
     return (
-        <button className={btnClass}>
+
+        <div>
             {
-                props.children
+                props.type === 'link' && props.href ? getLinkElement() : getButtonElement()
             }
-        </button>
+        </div>
+
 
     )
 }
 
 Button.defaultProps = {
-    type: 'primary',
-    size: 'normal'
+    type: 'default',
+    size: 'normal',
+    disabled: undefined,
 }
 
 export default Button

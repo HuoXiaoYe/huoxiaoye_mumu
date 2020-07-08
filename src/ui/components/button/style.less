@@ -6,31 +6,108 @@
 // @dangerColor:#F56C6C;
 // @infoColor:#909399;
 .mu-button{
-    margin: 20px;
     border-radius: 5px;
     border-style: none;
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+
+    .mu-loading{
+        position: relative;
+        content: " ";
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 1px solid transparent;
+        border-top-color: #fff;
+        animation: rotateAnimation 0.8s infinite ease-in;
+        margin-right: 5px;
+    }
+    @keyframes rotateAnimation {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(359deg);
+        }
+    }
     &.mu-large{
         padding: 20px 60px;
-        font-size: @fontBigSize;
+        font-size: @fontBigSize !important;
+        .mu-loading{
+            width: 25px;
+            height: 25px;
+        }
     }
+    
+    // 定义按钮尺寸
     &.mu-normal{
         padding: 10px 20px;
-        font-size: @fontNormalSize;
+        font-size: @fontNormalSize !important;
     }
+    &.mu-large{
+        padding: 12px 30px;
+        font-size: @fontBigSize !important;
+    }
+    &.mu-small{
+        padding: 7px 14px;
+        font-size: @fontSmallSize !important; 
+    }
+
     // 定义button类型
+    &.mu-default{
+        .btnTypeColor(#fff,#dcdfe6);
+        color: black;
+        .mu-loading{
+            border-top-color: #999;
+        }
+    }
+    &.mu-default.mu-plain{
+        background-color: #fff;
+    }
     &.mu-primary{
-        .btnTypeColor(@primaryColor);
+        .btnTypeColor(@primaryColor,@primaryColor);
+    }
+    &.mu-primary.mu-plain{
+        color: @primaryColor;
+        background-color: @lightPrimaryColor;
     }
     &.mu-success{
-        .btnTypeColor(@successColor);
+        .btnTypeColor(@successColor,@successColor);
+    }
+    &.mu-success.mu-plain{
+        color: @successColor;
+        background-color: @lightSuccessColor;
     }
     &.mu-warning{
-        .btnTypeColor(@dangerColor);
+        .btnTypeColor(@warningColor,@warningColor);
+    }
+    &.mu-warning.mu-plain{
+        color: @warningColor;
+        background-color: @lightWarningColor;
     }
     &.mu-danger{
-        .btnTypeColor(@dangerColor);
+        .btnTypeColor(@dangerColor,@dangerColor);
+    }
+    &.mu-danger.mu-plain{
+        color: @dangerColor;
+        background-color: @lightDangerColor;
     }
     &.mu-info{
-        .btnTypeColor(@infoColor);
+        .btnTypeColor(@infoColor,@infoColor);
+    }
+    &.mu-info.mu-plain{
+        color: @infoColor;
+        background-color: @lightInfoColor;
+    }
+    &.mu-circle{
+        border-radius:30px;
+    }
+    &.mu-disabled{
+        opacity: 0.3;
+    }
+    &.mu-link{
+        padding: 2px 5px !important;
+        color: @primaryColor;
     }
 }

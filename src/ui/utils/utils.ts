@@ -1,6 +1,6 @@
 // ['btn']
 
-export interface IGenerateClassName {
+interface IGenerateClassName {
     (prefix: string, classNameMap: {
         [key: string]: boolean | undefined
     }): string
