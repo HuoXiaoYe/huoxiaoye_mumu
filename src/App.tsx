@@ -4,12 +4,15 @@ import "@/ui/less/reset.less"
 import "@/ui/assets/iconfont/iconfont.css"
 
 // import ButtonWrap from "@/pages/button/buttonWrap"
-import MessageWrap from "@/pages/message/messageWrap"
+// import MessageWrap from "@/pages/message/messageWrap"
+import SwitchWrap from "@/pages/switch/switchWrap"
 
 function App() {
   return (
     <div className="App">
-      <MessageWrap />
+      {/* <ButtonWrap /> */}
+      {/* <MessageWrap /> */}
+      <SwitchWrap />
     </div>
   );
 }

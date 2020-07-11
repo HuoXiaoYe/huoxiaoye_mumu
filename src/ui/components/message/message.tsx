@@ -19,24 +19,23 @@ const Message = (function () {
   let notification:any = null
   const open = (config:IConfig) => {
     const {
-      type = 'default',  className, duration = 3, icon, message,
+      type = 'primary',  className, duration = 3, icon="info", message,
     } = config
-    const classesName = generateClassName("mu-",{
+    const classesName = generateClassName("mu",{
+      'message':true,
       [type] : !!type
     }, className)
     console.log(classesName)
     notification.notice({
       content: <div>
-        <p className={'mu-message ' + classesName}>
-          {icon ? '' :''}
-          {message}
+        <p className={classesName}>
+          {<p className={['iconfont', `icon-${icon}`].join(" ")}></p>}
+          <p>{message}</p>
         </p>
       </div>,
       duration,
     })
   }
-
-
   if (notification) {
     return {
       open

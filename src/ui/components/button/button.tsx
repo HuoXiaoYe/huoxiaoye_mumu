@@ -16,16 +16,21 @@ interface baseButtonProps {
     loading: 'loading';
     icon: string;
 }
-
 type NativeButtonProps = baseButtonProps & {
     onClick?: React.MouseEventHandler<HTMLElement>;
 };
 type NativeAnchorProps = baseButtonProps & React.AnchorHTMLAttributes<HTMLElement>;
 type buttonProps = Partial<NativeAnchorProps & NativeButtonProps>
 
+
+// type node = React.ReactNode;
+// let n:node = <div></div>
+// type child = React.ReactChild
+
+
 const Button: React.FC<buttonProps> = (props) => {
     const {
-        size, type, disabled, plain, circle, loading,icon, ...rest
+        size, type, disabled, plain, circle, loading, icon, className, ...rest
     } = props
     let btnClass = generateClassName("mu", {
         'button': true,
@@ -34,7 +39,7 @@ const Button: React.FC<buttonProps> = (props) => {
         [`${disabled}`]: !!disabled,
         [`${plain}`]: !!plain,
         [`${circle}`]: !!circle,
-        [`${icon}`] : !!icon
+        [`${icon}`]: !!icon
     })
     useEffect(() => {
         // console.log(props)
@@ -48,14 +53,15 @@ const Button: React.FC<buttonProps> = (props) => {
         }
 
     }
-    function getLinkElement():React.ReactNode {
+
+    function getLinkElement(): React.ReactNode {
         return <a href={props.href} className={btnClass} onClick={handleClick} target={props.target} {...rest}>
             {props.children}
         </a>
     }
-    function getButtonElement():React.ReactNode {
+    function getButtonElement(): React.ReactNode {
         return (
-            <button className={btnClass} onClick={handleClick}>
+            <button className={btnClass} onClick={handleClick} {...rest}>
                 {
                     loading ? <div className="mu-loading"></div> : ''
                 }
@@ -70,7 +76,7 @@ const Button: React.FC<buttonProps> = (props) => {
     }
     return (
 
-        <div>
+        <div className={className}>
             {
                 props.type === 'link' && props.href ? getLinkElement() : getButtonElement()
             }

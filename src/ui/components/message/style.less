@@ -1,19 +1,18 @@
+@import "@/ui/less/variables.less";
+@import "@/ui/less/mixin.less";
 .rc-notification {
     position: fixed;
+    top: 25px !important; 
     z-index: 1000;
   }
 .rc-notification-notice {
-    padding: 7px 20px 7px 10px;
-    border-radius: 3px 3px;
-    border: 1px solid #999;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border: 0px solid rgba(0, 0, 0, 0);
-    background: #fff;
+    // rc-notification
     display: block;
     width: auto;
     line-height: 1.5;
     position: relative;
     margin: 10px 0;
+    color: black !important;   
 }
 
 .rc-notification-fade-enter {
@@ -31,11 +30,11 @@
 
 @keyframes moveOutLeft {
     0% {
-        top:-20px;
+        top: 0px;
         opacity: 1;
     }
     100% {
-        top: 0px;
+        top: -20px;
         opacity: 0;
     }
 }
@@ -50,34 +49,41 @@
     }
 }
 
-.xNotice {
+
+//'primary' | 'info' | 'success' | 'warning' | 'danger'
+.mu-message{
+    text-align: center;
+    padding: 3px 6px;
+    border-radius: 6px;
     display: flex;
-    padding: 2px;
-    .iconWrap {
-        // width: 36px;
-        line-height: 1.5;
-        // font-size: 20px;
-        &.info {
-         color: #1890ff;
-        }
-        &.success {
-            color: #52c41a;
-        }
-        &.warning {
-            color: #faad14;
-        }
-        &.error {
-            color: #f5222d;
-        }
+    justify-content: center;
+    align-items: center;
+    &.mu-primary{
+        .adBorderBgColor(@lightPrimaryColor,@primaryColor);
+        color: @primaryColor;
     }
-    .xNoticeTit {
-        margin-bottom: 6px;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 1.5;
+    &.mu-info{
+        .adBorderBgColor(@lightInfoColor,@infoColor);
+        color: @infoColor;
     }
-    .xNoticeDesc {
-        line-height: 1.5;
-        color: rgba(0,0,0, .65)
+    &.mu-success{
+        .adBorderBgColor(@lightSuccessColor,@successColor);
+        color: @successColor;
+    }
+    &.mu-warning{
+        .adBorderBgColor(@lightWarningColor,@warningColor);
+        color: @warningColor;
+    }
+    &.mu-danger{
+        .adBorderBgColor(@lightDangerColor,@dangerColor);
+        color: @dangerColor;
+    }
+    &>span{
+        font-size: 14px;
+        height: 16px;
+        line-height: 16px;
+    }
+    &>span:first-child{
+        margin-right: 3px;
     }
 }

@@ -1,5 +1,21 @@
-.btnTypeColor(@bgColor,@borderColor:@bgColor){
+.adBorderBgColor(@bgColor,@borderColor:@bgColor){
     color: #ffffff;
     background-color: @bgColor;
     border: 1px solid @borderColor;
+}
+
+.switchLabelMixin(@width,@height){
+    position: relative;
+    width: @width;
+    height: @height;
+    border-radius: 2 / 3 * @height;
+    &::after{
+        content: "";
+        position: absolute;
+        width: @height;
+        height: @height;
+        transition: all 1s linear;
+        border-radius: 2 / 3 * @height;
+        background-color: @primaryColor;
+    }
 }
