@@ -12,10 +12,24 @@
     &::after{
         content: "";
         position: absolute;
+        transition: right 0.2s ease-in-out;
         width: @height;
         height: @height;
-        transition: all 1s linear;
+        right: @width - @height;
         border-radius: 2 / 3 * @height;
-        background-color: @primaryColor;
+        background-color: #fff;
     }
+}
+.loading-div(@width,@height){
+    position: absolute;
+    width: @height - 6;
+    height: @height - 6;
+    top: 3px;
+    right: @width - (@height - 3);
+    z-index: 999;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    border-top-color: #bfbfbf;
+    animation: rotateAnimation 1s linear infinite;
 }

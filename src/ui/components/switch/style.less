@@ -4,31 +4,37 @@
     cursor: pointer;
     .mu-switch{
         display: inline-block;
-        border: 1px solid  @primaryColor;
+        border: 1px solid  #bfbfbf;
+        transition: right 0.2s ease-in-out;
+        box-shadow: 0 0 0 2px #e8e8e8;
         &.mu-big{
-            transition: all 1s linear;
             .switchLabelMixin(70px,30px);
         }
         &.mu-normal{
-            transition: all 1s linear;
             .switchLabelMixin(54px,24px);
         }
         &.mu-small{
-            // transition: all 1s linear;
-            // .switchLabelMixin(35px,18px);
-            position: relative;
-            width: 35px;
-            height: 18px;
-            border-radius: 12px;
-            &::after{
-                content: "";
-                position: absolute;
-                width: 18px;
-                height: 18px;
-                transition: all 1s linear;
-                border-radius: 12px;
-                background-color: red;
-            }
+            .switchLabelMixin(35px,18px);
+        }
+        &.mu-disabled{
+            opacity: 0.5;
+        }
+        &.mu-loading.mu-big div{
+            .loading-div(70px, 30px)
+        }
+        &.mu-loading.mu-normal div{
+            .loading-div(54px, 24px)
+        }
+        &.mu-loading.mu-small div{
+            .loading-div(35px, 18px)
+        }
+    }
+    @keyframes rotateAnimation {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
         }
     }
     input{
@@ -37,7 +43,16 @@
     input:checked + .mu-switch.mu-big::after,
     input:checked + .mu-switch.mu-normal::after,
     input:checked + .mu-switch.mu-small::after{
-        transition: all 1s linear;
-        right:0px;
+        right: 0px ;
+    }
+    input:checked + .mu-switch.mu-loading div{
+        right: 3px ;
+    }
+    input + .mu-switch{
+        background-color: #bfbfbf;
+    }
+    input:checked + .mu-switch{
+        background-color: @primaryColor;
+        box-shadow: 0 0 0 2px @lightPrimaryColor;
     }
 }
