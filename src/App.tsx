@@ -5,14 +5,15 @@ import "@/ui/assets/iconfont/iconfont.css"
 
 // import ButtonWrap from "@/pages/button/buttonWrap"
 // import MessageWrap from "@/pages/message/messageWrap"
-import SwitchWrap from "@/pages/switch/switchWrap"
-
+// import SwitchWrap from "@/pages/switch/switchWrap"
+import UpRefreshWrap from "@/pages/upRefresh/upRefreshWrap"
 function App() {
   return (
     <div className="App">
       {/* <ButtonWrap /> */}
       {/* <MessageWrap /> */}
-      <SwitchWrap />
+      {/* <SwitchWrap /> */}
+      <UpRefreshWrap />
     </div>
   );
 }

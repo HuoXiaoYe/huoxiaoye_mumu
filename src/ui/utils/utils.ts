@@ -11,5 +11,10 @@ export const generateClassName: IGenerateClassName = (prefix, classNameMap, clas
     Object.keys(classNameMap).forEach(item => {
         classNameMap[item] && classArr.push(`${prefix}-${item}`)
     })
-    return (className ? `${className} `: '')+ classArr.join(" ");
+    return (className ? `${className} ` : '') + classArr.join(" ");
+}
+
+export const useDebounce: (fn: () => void, delay: number)=> ()=>void = () => {
+    
+    return ()=>{}
 }

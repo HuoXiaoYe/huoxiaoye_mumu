@@ -1,0 +1,23 @@
+@import "@/ui/less/variables.less";
+@import "@/ui/less/mixin.less";
+.up-refresh-wrap{
+    .list-item{
+        height: 120px;
+        text-align: center;
+        line-height: 120px;
+        font-size: 24px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        &:nth-child(3n){
+            background-color: @lightPrimaryColor;
+        }
+        &:nth-child(3n-1){
+            background-color: @lightInfoColor;
+        }
+        &:nth-child(3n-2){
+            background-color: @lightSuccessColor;
+        }
+    }
+
+}
