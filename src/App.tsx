@@ -7,6 +7,7 @@ import "@/ui/assets/iconfont/iconfont.css"
 // import MessageWrap from "@/pages/message/messageWrap"
 // import SwitchWrap from "@/pages/switch/switchWrap"
 import UpRefreshWrap from "@/pages/upRefresh/upRefreshWrap"
+// import LoadingWrap from "@/pages/loading/loadingWrap"
 function App() {
   return (
     <div className="App">
@@ -14,6 +15,7 @@ function App() {
       {/* <MessageWrap /> */}
       {/* <SwitchWrap /> */}
       <UpRefreshWrap />
+      {/* <LoadingWrap /> */}
     </div>
   );
 }

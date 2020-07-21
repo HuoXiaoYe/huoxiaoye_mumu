@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import "./style.less"
+import Loading from "@/ui/components/loading/loading"
 
 interface UpRefershProps {
     isEnd: boolean;
@@ -17,11 +18,12 @@ const UpRefresh: React.FC<UpRefershProps> = props => {
     const container = useRef<HTMLDivElement>(null!)
     // let _container:HTMLDivElement = container.current;
     useEffect(() => {
+        // console.log(container.current)
         container.current.addEventListener("scroll", executeLoadMore)
         return ()=>{
             container.current.removeEventListener("scroll", executeLoadMore)
         }
-    })
+    },)
 
     function executeLoadMore(): void {
         console.log(getScrollTop() + getClientHeight() + 20)
@@ -42,9 +44,9 @@ const UpRefresh: React.FC<UpRefershProps> = props => {
             {
                 props.children
             }
-                <div style={{lineHeight:'40px',textAlign:"center"}}>
+                <div style={{padding:"10px",textAlign:"center"}}>
                     {
-                        props.isEnd ? "没有更多了" : "正在努力加载中" 
+                        props.isEnd ? "亲，我也是有底线的哦" : <Loading type="line" size="small" content="正在💪加载中..."/>
                     }
                 </div>
         </div>

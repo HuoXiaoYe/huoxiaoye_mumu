@@ -1,0 +1,153 @@
+.line-loading(@width,@height){
+    .line-loading{
+        height: @height * 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .line{
+            width: @width;
+            height: @height;
+            margin-left: @width / 3 * 2;
+            transition: all 0.5s ease-in;
+            &:first-child{
+                margin-left: 0;
+                animation: lineScale 0.9s infinite alternate;
+            }
+            &:nth-child(2){
+                animation: lineScale 0.9s infinite alternate 0.3s;
+            }
+            &:nth-child(3){
+                animation: lineScale 0.9s infinite alternate 0.6s;
+            }
+
+
+            @keyframes lineScale {
+                0%{
+                    transform: scaleY(0.6);
+                }
+                100%{
+                    transform: scaleY(2);
+                }
+            }
+        }
+    }
+}
+
+.circle-loading(@width){
+    .circle-loading{
+        width: @width;
+        height: @width;
+        border: @width / 15 solid transparent;
+        border-radius: 50%;
+        transition: all 0.5s linear;
+        animation: circleRotate infinite 1s linear;
+        @keyframes circleRotate {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
+
+.mum-loading(@width,@height){
+    .mum-loading{
+        width: @height;
+        height: @height;
+        display: flex;
+        transform-origin: center center;
+        position: relative;
+        transition: all 0.5s linear;
+        animation: circleRotate infinite 2.5s linear;
+        .mu-petals{
+            position: absolute;
+            width: @width;
+            height: @height;
+            left: 50%;
+            transform: translateX(-50%);
+            // background-color: red;
+            &::before,
+            &::after{
+                content: " ";
+                position: absolute;
+                width: @width;
+                height: @height / 4;
+                background-color:#409eff;
+                border-radius: 50%;
+            }
+            &::before{
+                top: 0;
+            }
+            &::after{
+                bottom: 0;
+            }
+        }
+        
+        .petal-one{
+            transform: rotate(0deg)
+        }
+        .petal-two{
+            transform: rotate(36deg)
+        }
+        .petal-three{
+            transform: rotate(72deg)
+        }
+        .petal-four{
+            transform: rotate(108deg)
+        }
+        .petal-five{
+            transform: rotate(144deg)
+        }
+    }
+    
+    @keyframes mumRotate {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+}
+
+.mu-loading{
+    &.mu-horizontal{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        & > p{
+            margin-left: 5px;
+        }
+    }
+    &.mu-vertial p{
+        text-align: center;
+        margin-top: 5px;
+    }
+    &.mu-large{
+        .line-loading(8px,24px);
+        .circle-loading(50px);
+        .mum-loading(6px, 60px);
+        p{
+            font-size: 16px;
+        }
+    }
+    &.mu-normal{
+        .line-loading(5px,15px);
+        .circle-loading(40px);
+        .mum-loading(4px, 40px);
+        p{
+            font-size: 14px;
+        }
+    }
+    &.mu-small{
+        .line-loading(3px,9px);
+        .circle-loading(30px);
+        .mum-loading(3px, 30px);
+        p{
+            font-size: 12px;
+        }
+    }
+}
