@@ -1,0 +1,32 @@
+@import "@/ui/less/variables.less";
+@import "@/ui/less/mixin.less";
+.mu-bubble{
+    // 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight'
+    position: fixed;
+    padding: 8px;
+    border: 1px solid @lightSuccessColor;
+    border-radius: 20px;
+    transition: all 0.1s ease-in;
+    background-color: @lightPrimaryColor;
+    .iconfont{
+        font-size: 22px;
+        color: @successColor;
+
+    }
+    &.mu-topLeft{
+       top: 30px;
+       left: 30px; 
+    }
+    &.mu-topRight{
+        top: 30px;
+        right: 30px; 
+    }
+    &.mu-bottomLeft{
+        bottom: 30px;
+        left: 30px; 
+    }
+    &.mu-bottomRight{
+        bottom: 30px;
+        right: 30px; 
+    }
+}

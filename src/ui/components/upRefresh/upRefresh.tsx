@@ -8,17 +8,11 @@ interface UpRefershProps {
     children: React.ReactNode
 }
 
-// let node:HTMLElement = document.getElementById("box");
-// node.scrollTop
-
-
-
 const UpRefresh: React.FC<UpRefershProps> = props => {
     console.log(props)
     const container = useRef<HTMLDivElement>(null!)
-    // let _container:HTMLDivElement = container.current;
     useEffect(() => {
-        // console.log(container.current)
+        console.log(container.current)
         container.current.addEventListener("scroll", executeLoadMore)
         return ()=>{
             container.current.removeEventListener("scroll", executeLoadMore)
