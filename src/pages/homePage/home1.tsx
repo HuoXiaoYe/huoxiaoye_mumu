@@ -6,7 +6,7 @@ import React from 'react'
 // import UpRefreshWrap from "@/pages/upRefresh/upRefreshWrap"
 // import LoadingWrap from "@/pages/loading/loadingWrap"
 // import BubbleWrap from "@/pages/bubble/bubbleWrap"
-import Superposition from "@/pages/superposition/superposition"
+// import Superposition from "@/pages/superposition/superposition"
 
 const Home1: React.FC = props => {
     return (

@@ -1,0 +1,44 @@
+@import "@/ui/less/variables.less";
+@import "@/ui/less/mixin.less";
+.mu-list-group{
+    .mu-list-item{
+        display: flex;
+        justify-content: space-between;
+        margin-left: 10px;
+        padding-right: 10px;
+        // line-height: 40px;
+        padding: 6px;
+        padding-left: 0;
+        font-size: 18px;
+        position: relative;
+        border-top: 1px solid #efefef;
+    }
+    .mu-list-item-prefix{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .prefix{
+            margin-right: 6px;
+            font-size: 20px;
+            line-height: 20px;
+            padding: 5px;
+            border: 1px solid #999;
+            border-radius: 50%;
+            text-align: center;
+            font-weight: 500;
+            .adBorderBgColor(@lightPrimaryColor, @primaryColor);
+            color:@primaryColor;
+        }
+    }
+    .mu-list-item-suffix{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        color: #666;
+        .mu-list-item-description{
+            margin-right: 5px;
+            font-size: 16px;
+        }
+    }
+}

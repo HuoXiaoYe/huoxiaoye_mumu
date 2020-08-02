@@ -12,16 +12,15 @@ const UpRefresh: React.FC<UpRefershProps> = props => {
     console.log(props)
     const container = useRef<HTMLDivElement>(null!)
     useEffect(() => {
-        console.log(container.current)
-        container.current.addEventListener("scroll", executeLoadMore)
-        return ()=>{
-            container.current.removeEventListener("scroll", executeLoadMore)
-        }
+        executeLoadMore()
+        // console.log(container.current)
+        // container.current.addEventListener("scroll", executeLoadMore)
+        // return ()=>{
+        //     container.current.removeEventListener("scroll", executeLoadMore)
+        // }
     },)
 
     function executeLoadMore(): void {
-        console.log(getScrollTop() + getClientHeight() + 20)
-        console.log(container.current.scrollHeight)
         if (!props.isEnd && getScrollTop() + getClientHeight() + 20 > (container.current.scrollHeight)) {
             props.loadMore()
         }

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import Button from "@/ui/components/button/button"
+import React, { useState } from 'react'
 import { generateClassName } from "@/ui/utils/utils"
 import "./style.less"
 
@@ -16,15 +15,10 @@ export interface BubbleProps {
 
 const Bubble: React.FC<BubbleProps> = (props) => {
     const [showDetail, setShowDetail] = useState<boolean>(false);
-    const [mainWidth, setMainWidth] = useState<number>(0);
     const {position,className} = props;
     const classNames = generateClassName('mu',{
         [`${position}`]:!!position
     },className)
-    useEffect(() => {
-        // console.log(classNames)
-        // setMainWidth((document.getElementsByClassName('mu-main')[0] as any).offsetWidth)
-    },[])
     function toggleShowDetail() {
         setShowDetail(!showDetail)
     }

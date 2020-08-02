@@ -8,12 +8,8 @@ interface SuperpositionProps {
 
 const Superposition: React.FC<SuperpositionProps> = props => {
     const [showSecondPage, setShowSecondPage] = useState<boolean>(false)
-    // let newChild:React.ReactNode[] = [] 
     useEffect(()=>{
-        React.Children.forEach(props.children,(item:React.ReactNode)=>{
-            // item.
-        })
-    },[props.children])
+    },[])
     function handleShowSecondPage(): void {
         setShowSecondPage(!showSecondPage)
     }

@@ -6,6 +6,125 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "128646",
+      "name": "arrow-right",
+      "font_class": "arrowright",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    },
+    {
+      "icon_id": "348236",
+      "name": "arrow-right",
+      "font_class": "arrowright1",
+      "unicode": "e9ce",
+      "unicode_decimal": 59854
+    },
+    {
+      "icon_id": "586748",
+      "name": "arrow-bottom",
+      "font_class": "arrowbottom",
+      "unicode": "e6a2",
+      "unicode_decimal": 59042
+    },
+    {
+      "icon_id": "586753",
+      "name": "arrow-left",
+      "font_class": "arrowleft",
+      "unicode": "e6a7",
+      "unicode_decimal": 59047
+    },
+    {
+      "icon_id": "1005155",
+      "name": "arrow-right",
+      "font_class": "arrowright2",
+      "unicode": "e693",
+      "unicode_decimal": 59027
+    },
+    {
+      "icon_id": "1368572",
+      "name": "arrow-top",
+      "font_class": "arrow-top",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "1503875",
+      "name": "double-arrow-bottom",
+      "font_class": "double-arrow-bottom",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    },
+    {
+      "icon_id": "1503877",
+      "name": "Single-arrow-bottom",
+      "font_class": "Single-arrow-bottom",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "1898525",
+      "name": "arrow-left",
+      "font_class": "arrow-left",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "6151370",
+      "name": "arrow-left",
+      "font_class": "arrow-left1",
+      "unicode": "e841",
+      "unicode_decimal": 59457
+    },
+    {
+      "icon_id": "8449671",
+      "name": "Icons_Tool Bar_Arrow Right",
+      "font_class": "Icons_ToolBar_ArrowRight",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "8449796",
+      "name": "Icons_Tool Bar_Arrow Right",
+      "font_class": "Icons_ToolBar_ArrowRight1",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "10304451",
+      "name": "arrow-bottom",
+      "font_class": "arrow-bottom",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "10304455",
+      "name": "arrow-top",
+      "font_class": "arrow-top1",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "10909304",
+      "name": "arrow-left",
+      "font_class": "arrow-left2",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "12821286",
+      "name": "arrow-top",
+      "font_class": "arrow-top2",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "14464932",
+      "name": "arrow-top",
+      "font_class": "arrow-top3",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
       "icon_id": "544480",
       "name": "close",
       "font_class": "close",
