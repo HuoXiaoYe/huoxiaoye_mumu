@@ -9,6 +9,7 @@ interface BaseListItemProps {
     prefixText: string;
     description: string;
     suffixIcon: string;
+    onClick: () => void;
 }
 
 export type ListItemProps = Partial<BaseListItemProps> & { content: string }
@@ -18,13 +19,18 @@ const ListItem: React.FC<ListItemProps> = props => {
     useEffect(() => {
         console.log('ListItem useEffect')
     })
+    function handleClick(): void {
+        if (props.onClick) {
+            props.onClick()
+        }
+    }
     const { className } = props;
     const classes = generateClassName('mu', { "list-item": true }, className)
     return (
-        <div className={classes}>
+        <div className={classes} onClick={handleClick}>
             <div className="mu-list-item-prefix">
                 {
-                    prefixIcon ? <i className="iconfont prefix" dangerouslySetInnerHTML={{__html:prefixIcon}}></i> : ''
+                    prefixIcon ? <i className="iconfont prefix" dangerouslySetInnerHTML={{ __html: prefixIcon }}></i> : ''
                 }
                 {
                     prefixText ? <p className="prefix">{prefixText}</p> : ''
@@ -33,13 +39,13 @@ const ListItem: React.FC<ListItemProps> = props => {
             </div>
             <div className="mu-list-item-suffix">
                 {
-                    props.children&&!description &&!suffixIcon ? props.children : ''
+                    props.children && !description && !suffixIcon ? props.children : ''
                 }
                 {
                     !props.children && description ? (<p className="mu-list-item-description">{description}</p>) : ''
                 }
                 {
-                    !props.children && suffixIcon ? <i className="iconfont mu-list-item-suffixIcon" dangerouslySetInnerHTML={{__html:suffixIcon}}></i> : ''
+                    !props.children && suffixIcon ? <i className="iconfont mu-list-item-suffixIcon" dangerouslySetInnerHTML={{ __html: suffixIcon }}></i> : ''
                 }
             </div>
         </div>

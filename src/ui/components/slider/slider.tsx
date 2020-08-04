@@ -3,8 +3,8 @@ import "./style.less"
 import { generateClassName } from "@/ui/utils/utils"
 import { MuMuColorType } from "@/ui/utils/type"
 import Button from "@/ui/components/button/button"
-import { RemoveReadonly } from "@/ui/utils/UtilityTypes"
-import useDebounce from "@/ui/utils/useDebounce"
+// import { RemoveReadonly } from "@/ui/utils/utilityTypes"
+// import useDebounce from "@/ui/utils/useDebounce"
 interface baseSliderProps {
     defaultValue: number;
     maxValue: number;
@@ -25,24 +25,25 @@ const Slider: React.FC<SliderProps> = props => {
     let [left, setLeft] = useState<number>(defaultValue / (maxValue - minValue));
     let [sliderWidth, setSliderWidth] = useState<number>(275)
     // let [wrapRect, setWrapRect] = useState<RemoveReadonly<DOMRect>>(null!)
+    // eslint-disable-next-line
     useEffect(() => {
         // 初始化监听事件
         handleEl.current.addEventListener("touchstart", touchStartHandle);
         handleWrap.current.addEventListener("touchmove", touchMoveHandle);
         handleEl.current.addEventListener("touchend", touchEndHandle);
         setSliderWidth(275)
-
+        var tempEl1 = handleEl.current
+        var tempEl2 = handleWrap.current
         console.log("handleWrap.current.getBoundingClientRect()", handleWrap.current.getBoundingClientRect())
         console.log("handleWrap.current.getBoundingClientRect()", handleWrap.current.getBoundingClientRect())
         return () => {
-            handleEl.current.removeEventListener("touchstart", touchStartHandle);
-            handleWrap.current.removeEventListener("touchmove", touchMoveHandle);
-            handleEl.current.removeEventListener("touchend", touchEndHandle);
+            tempEl1.removeEventListener("touchstart", touchStartHandle);
+            tempEl2.removeEventListener("touchmove", touchMoveHandle);
+            tempEl1.removeEventListener("touchend", touchEndHandle);
         }
-    }, [])
+    })
     function touchStartHandle(e: TouchEvent) {
         console.log("sliderWidth", sliderWidth)
-        // console.log(wrapRect)
     }
 
     function touchMoveHandle(e: TouchEvent) {
@@ -52,14 +53,6 @@ const Slider: React.FC<SliderProps> = props => {
         console.log("left", left)
         console.log("sliderWidth", sliderWidth)
         setLeft((left) / sliderWidth)
-        // useDebounce(() => {
-        //     let left = e.changedTouches[0].pageX - handleWrap.current.getBoundingClientRect().x;
-        //     if (left <= 0) return setLeft(0)
-        //     if (left >= sliderWidth) return setLeft(1)
-        //     console.log("left", left)
-        //     console.log("sliderWidth", sliderWidth)
-        //     setLeft((left) / sliderWidth)
-        // }, 100)
     }
     function touchEndHandle(e: TouchEvent) {
         console.log("touchEndHandle")

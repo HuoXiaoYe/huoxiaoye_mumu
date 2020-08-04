@@ -16,7 +16,6 @@ import ListWrap from "@/pages/list/listWrap"
 import SliderWrap from "@/pages/slider/sliderWrap"
 
 
-
 const isDebug = false;
 // 本地开发调试注入vConsole
 if (isDebug) {
@@ -24,6 +23,7 @@ if (isDebug) {
 }
 function App() {
   return (
+
     <Router>
       <div className="App">
         <Route path="/index" exact component={Index} />

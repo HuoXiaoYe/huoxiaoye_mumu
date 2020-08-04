@@ -3,6 +3,7 @@ import "./style.less";
 import ListGroup from "@/ui/components/list/listGroup";
 import ListItem, { ListItemProps } from "@/ui/components/list/listItem"
 import Switch from "@/ui/components/switch/switch"
+import Button from "@/ui/components/button/button"
 interface ListWrapProps {
 
 }
@@ -63,7 +64,7 @@ const listArr: { title: string, items: ListItemProps[] }[] = [
                 children: <Switch checked={true} size="small" onChange={() => { }} />,
             }, {
                 content: '谁没有一样',
-                children: <Switch checked={false} size="big" onChange={() => { }} />,
+                children: <Button size="small" type="primary" circle="circle">clicle me</Button>,
             },
         ]
     },
