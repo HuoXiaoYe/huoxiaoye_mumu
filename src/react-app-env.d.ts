@@ -35,8 +35,8 @@ declare module '*.png' {
 }
 
 declare module '*.webp' {
-    const src: string;
-    export default src;
+  const src: string;
+  export default src;
 }
 
 declare module '*.svg' {
@@ -64,3 +64,11 @@ declare module '*.module.sass' {
   const classes: { readonly [key: string]: string };
   export default classes;
 }
+
+declare type ReturnFuncArgsType<T extends (...args: any[]) => any> = T extends (...args: infer U) => any ? U : any;
+declare type PowerPick<T, U extends keyof Record<string, any>> = Pick<T, Extract<keyof T, U>>
+declare type FunctionPropertyNames<T> = {
+  [K in keyof T]: T[K] extends Function ? K : never
+}[keyof T];
+declare type FunctionProperties<T> = Pick<T, FunctionPropertyNames<T>>;
+
