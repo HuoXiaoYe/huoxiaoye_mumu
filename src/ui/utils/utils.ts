@@ -20,7 +20,7 @@ export function useThrottle<T extends (...args: any[]) => void>(func: T, delay: 
     };
 }
 export function generateClassName<T extends Record<string, boolean | undefined>>
-    (prefix: string, classNameMap: T, className: string): string {
+    (prefix: string, classNameMap: T, className?: string): string {
     let classArr: string[] = [];
     Object.keys(classNameMap).forEach(item => {
         classNameMap[item] && classArr.push(`${prefix}-${item}`)

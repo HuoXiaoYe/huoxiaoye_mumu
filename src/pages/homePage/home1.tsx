@@ -3,7 +3,7 @@ import ListItem, { ListItemProps } from '@/ui/components/list/listItem'
 import ListGroup from '@/ui/components/list/listGroup'
 const listArr: { title: string, items: (ListItemProps & { to?: string })[] }[] = [
     {
-        title: '暂未排版',
+        title: '',
         items: [{
                 content: '按钮',
                 to: '/button',
@@ -82,15 +82,6 @@ const Home1: React.FC = props => {
                     })}
                 </ul>
             </div>
-            {/* <ButtonWrap /> */}
-            {/* <MessageWrap /> */}
-            {/* <SwitchWrap /> */}
-            {/* <UpRefreshWrap /> */}
-            {/* <LoadingWrap /> */}
-            {/* <BubbleWrap /> */}
-            {/* <Superposition>
-                <div>1</div>
-            </Superposition> */}
         </div>
     )
 }

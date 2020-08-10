@@ -1,16 +1,17 @@
 import React from 'react'
-import "./style.less";
+import ListWrapStyle from "./style.module.less";
 import ListGroup from "@/ui/components/list/listGroup";
 import ListItem, { ListItemProps } from "@/ui/components/list/listItem"
 import Switch from "@/ui/components/switch/switch"
 import Button from "@/ui/components/button/button"
+import TitleWrap from "@/pages/title/title"
 interface ListWrapProps {
 
 }
 
 const listArr: { title: string, items: ListItemProps[] }[] = [
     {
-        title: '基本使用',
+        title: '列表的基本使用',
         items: [{
             content: '列表项1'
         }, {
@@ -23,7 +24,7 @@ const listArr: { title: string, items: ListItemProps[] }[] = [
         ]
     },
     {
-        title: '前缀',
+        title: '带前缀的列表且支持使用图标',
         items: [
             {
                 prefixIcon: '&#xe786;',
@@ -38,7 +39,7 @@ const listArr: { title: string, items: ListItemProps[] }[] = [
         ]
     },
     {
-        title: '后缀',
+        title: '带图标和后缀文字，可以用作跳转导航',
         items: [
             {
                 suffixIcon: '&#xe693;',
@@ -54,7 +55,7 @@ const listArr: { title: string, items: ListItemProps[] }[] = [
         ]
     },
     {
-        title: '自定义后缀',
+        title: '后缀可以自定义，方便配合其他组件',
         items: [
             {
                 content: '我可以自定义哦',
@@ -69,16 +70,14 @@ const listArr: { title: string, items: ListItemProps[] }[] = [
         ]
     },
 ]
-
-// import {} from ""
-
 const ListWrap: React.FC<ListWrapProps> = props => {
     return (
-        <div className="list-wrap">
-            <ul className="list-group">
+        <div className={ListWrapStyle["list-wrap"]}>
+            <TitleWrap title="列表" subTitle="list" desc="" />
+            <ul className={ListWrapStyle["list-group"]}>
                 {listArr.map((item) => {
                     return (
-                        <li className="group-item" key={item.title}>
+                        <li className={ListWrapStyle["group-item"]} key={item.title}>
                             <p>{item.title}</p>
                             <ListGroup>
                                 {
@@ -93,7 +92,6 @@ const ListWrap: React.FC<ListWrapProps> = props => {
                     )
                 })}
             </ul>
-
         </div>
     )
 }
