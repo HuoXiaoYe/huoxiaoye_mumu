@@ -1,15 +1,16 @@
 import React from 'react'
 import Bubble from "@/ui/components/bubble/bubble"
+import BubbleStyle from "./style.module.less"
 
-const BubbleWrap:React.FC = ()=>{
+const BubbleWrap: React.FC = () => {
     return (
-        <div className="bubble-wrap">
+        <div className={BubbleStyle["bubble-wrap"]}>
             <Bubble>
-                <div>签到</div>
-                <div>加微信</div>
-                <div>加QQ</div>
-                <div>打卡</div>
-                <div>滑水</div>
+                <div className={BubbleStyle["bubble-main"]}>
+                    {
+                        new Array(5).fill(0).map((item, i) => <div key={i}>第{i + 1}项</div>)
+                    }
+                </div>
             </Bubble>
         </div>
     )

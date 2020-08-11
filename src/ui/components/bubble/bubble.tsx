@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { generateClassName } from "@/ui/utils/utils"
 import "./style.less"
 
@@ -10,24 +10,32 @@ export interface BubbleProps {
     right?: string;
     children: React.ReactNode;
     icon?: string;
-    className?:string
+    className?: string
 }
 
 const Bubble: React.FC<BubbleProps> = (props) => {
-    const [showDetail, setShowDetail] = useState<boolean>(false);
-    const {position,className} = props;
-    const classNames = generateClassName('mu',{
-        [`${position}`]:!!position
-    },className)
-    function toggleShowDetail() {
-        setShowDetail(!showDetail)
+    const { position, className } = props;
+    const [isFold, setFold] = useState<boolean>(true);
+    const [mainWidth, setMainWidth] = useState<number>();
+    const [mainHeight, setMainHeight] = useState<number>();
+    const classNames = generateClassName('mu', {
+        [`${position}`]: !!position
+    }, className)
+    const mainEl = useRef<HTMLDivElement>(null!)
+    useEffect(() => {
+        setMainWidth(mainEl.current.offsetWidth);
+        setMainHeight(mainEl.current.offsetHeight);
+    }, [])
+    function handleToggleFold(): void {
+        setFold(!isFold)
     }
     return (
-        <div className={"mu-bubble " + classNames} style={{width:showDetail? "120px":"20px",height:showDetail? "200px":"20px",overflow:'hidden'}} onClick={toggleShowDetail} >
-            <i className={['iconfont', `icon-${'star'}`].join(" ")} 
-            style={{display:showDetail? "none":"block",}} onClick={toggleShowDetail}></i>
-            <div className="mu-main" style={{display:!showDetail? "none":"block",}}>
-                {props.children}
+        <div className={"mu-bubble-wrap " + classNames} style={{ width: isFold ? '36px' : mainWidth + 'px', height: isFold ? '36px' : mainHeight + 'px', borderRadius : isFold ? '18px' : '10px' }}>
+            <div className="mu-bubble-main" ref={mainEl}>
+                <div className="mu-main">
+                    {props.children}
+                </div>
+                <i onClick={handleToggleFold}  className={['iconfont', `icon-${'close'}`, isFold ? '' : 'no-fold'].join(" ")} style={{ width: isFold ? '36px' : mainWidth + 'px'}}></i>
             </div>
         </div>
     )
