@@ -43,19 +43,20 @@ const listArr: { title: string, items: (ListItemProps & { to?: string })[] }[] =
                 content: 'slider',
                 to: '/slider',
                 suffixIcon: '&#xe693;',
+            },
+            {
+                content: 'tab',
+                to: '/tab',
+                suffixIcon: '&#xe693;',
+            },
+            {
+                content:'demo',
+                to:'demo',
+                suffixIcon:'&#xe693;',
             }
         ]
     },
 ]
-
-// import ButtonWrap from "@/pages/button/buttonWrap"
-// import MessageWrap from "@/pages/message/messageWrap"
-// import SwitchWrap from "@/pages/switch/switchWrap"
-// import UpRefreshWrap from "@/pages/upRefresh/upRefreshWrap"
-// import LoadingWrap from "@/pages/loading/loadingWrap"
-// import BubbleWrap from "@/pages/bubble/bubbleWrap"
-// import Superposition from "@/pages/superposition/superposition"
-
 const Home1: React.FC = props => {
     return (
         <div className="home1-wrap">

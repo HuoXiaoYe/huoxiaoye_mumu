@@ -1,0 +1,39 @@
+.mu-tab{
+    width: 100%;
+    // overflow: hidden;
+    & >.mu-tab-title-wrap{
+        .mu-tab-title-container{
+            display: flex;
+            justify-content: space-around;
+            li{
+                text-align: center;
+                flex: 1;
+                min-width: 15%;
+                font-size: 14px;
+                color: #646566;
+                line-height: 35px;
+                box-sizing: border-box;
+                &.active{
+                   font-size: 16px;
+                   color: black; 
+                }
+                & > .active-line{
+                    width: 100%;
+                    border-bottom: 2px solid red;
+                }
+            }
+        }
+    }
+    & > .mu-tab-main-wrap{
+        width: 100%;
+        overflow: hidden;
+        &>.mu-tab-main-container{
+            display: flex;
+            // width: 200%;
+            &>.mu-tab-item{
+                width: 100vw;
+                flex: 0 0 100vw;
+            }
+        }
+    }
+}

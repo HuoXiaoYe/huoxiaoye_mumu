@@ -14,6 +14,8 @@ import BubbleWrap from "@/pages/bubble/bubbleWrap"
 import Superposition from "@/pages/superposition/superposition"
 import ListWrap from "@/pages/list/listWrap"
 import SliderWrap from "@/pages/slider/sliderWrap"
+import TabWrap from "@/pages/tab/tabWrap";
+import Demo from "@/pages/demo/demo1"
 
 
 const isDebug = false;
@@ -23,7 +25,6 @@ if (isDebug) {
 }
 function App() {
   return (
-
     <Router>
       <div className="App">
         <Route path="/index" exact component={Index} />
@@ -36,6 +37,8 @@ function App() {
         <Route path="/superposition" exact component={Superposition} />
         <Route path="/list" exact component={ListWrap} />
         <Route path="/slider" exact component={SliderWrap} />
+        <Route path="/tab" exact component={TabWrap} />
+        <Route path="/demo" exact component={Demo} />
       </div>
     </Router>
   );
