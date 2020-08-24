@@ -11,7 +11,6 @@ export interface TabItemProps {
 
 const TabItem: React.FC<TabItemProps> = props => {
     const { className } = props;
-    // const [startX, setStartX] = useState<number>(0);
     const tabItemWrapEl = useRef<HTMLDivElement>(null!);
     const classes = generateClassName("mu", {
         'tab-item': true,

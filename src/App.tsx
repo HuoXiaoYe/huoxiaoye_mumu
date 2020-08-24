@@ -15,7 +15,7 @@ import Superposition from "@/pages/superposition/superposition"
 import ListWrap from "@/pages/list/listWrap"
 import SliderWrap from "@/pages/slider/sliderWrap"
 import TabWrap from "@/pages/tab/tabWrap";
-import Demo from "@/pages/demo/demo1"
+import Demo from "@/pages/demo/demo"
 
 
 const isDebug = false;
