@@ -1,56 +1,41 @@
-import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import React from 'react'
+import { treeData, ITreeNode } from "./treeMapData"
+import DemoStyle from "./demo.module.less"
 
-export default  function WithoutMemo() {
-    const [count, setCount] = useState(1);
-    const [val, setValue] = useState('');
-    function expensive() {
-        console.log('compute');
-        let sum = 0;
-        for (let i = 0; i < count * 100; i++) {
-            sum += i;
-        }
-        return sum;
-    }
 
-    return <div>
-        <h4>{count}-{expensive()}</h4>
-        {val}
+interface ITreeMap {
+    list: ITreeNode[];
+    level: number;
+}
+
+const TreeMap: React.FC<ITreeMap> = (props) => {
+    // props.
+    return (
         <div>
-            <button onClick={() => setCount(count + 1)}>+c1</button>
-            <input value={val} onChange={event => setValue(event.target.value)} />
+
+            <div className={DemoStyle[`tree-${props.level}`.toString()]}>
+                {
+                    props.list.map((item, index) => {
+                        return <div key={index + Math.random()}>
+                            {item.name}==={props.level.toString()}
+                    </div>
+                    })
+                }
+            </div>
+            {
+                props.list[0]._child ? <TreeMap level={props.level + 1} list={props.list[0]._child} /> : ''
+            }
         </div>
-        <ShowCount count={count} />
-    </div>;
+    )
 }
 
 
-function WithMemo() {
-    const [count, setCount] = useState(1);
-    const [val, setValue] = useState('');
-    const expensive = useMemo(() => {
-        console.log('compute');
-        let sum = 0;
-        for (let i = 0; i < count * 100; i++) {
-            sum += i;
-        }
-        return sum;
-    }, [count]);
-    return <div>
-        <h4>{count}-{expensive}</h4>
-        {val}
+const TreeWrap: React.FC = () => {
+    return (
         <div>
-            <button onClick={() => setCount(count + 1)}>+c1</button>
-            <input value={val} onChange={event => setValue(event.target.value)} />
+            <TreeMap level={1} list={treeData} />
         </div>
-        
-    </div>;
+    )
 }
 
-const ShowCount: React.FC<{ count: number }> = ({ count }) => {
-    useEffect(() => {
-        console.log("count chang")
-    }, [count])
-    return <div>
-        {count}
-    </div>
-}
+export default TreeWrap
